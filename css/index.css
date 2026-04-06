@@ -1,0 +1,11 @@
+/* Responsive */
+@media (max-width: 900px) {
+    .intro-container {
+        flex-direction: column;
+        padding: 18px 8px;
+        gap: 18px;
+    }
+    .intro-image img {
+        max-width: 100%;
+    }
+}
