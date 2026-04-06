@@ -1,4 +1,4 @@
-# 🛒 Đề tài 2: Xây dựng và triển khai Website Thương Mại Điện Tử
+# 🛒 Đề tài: Xây dựng và triển khai Website Thương Mại Điện Tử
 
 ## 📌 Mô tả đề bài
 Xây dựng và triển khai một website thương mại điện tử phục vụ nhu cầu mua sắm trực tuyến.  
@@ -56,7 +56,60 @@ Website cần đảm bảo đầy đủ các chức năng cơ bản và nâng ca
 - Quản lý sản phẩm
 - Quản lý đơn hàng
 - Quản lý người dùng
+# 🛒 E-commerce Website Structure
 
+## 👤 User Menu (Frontend)
+
+### 🔹 Main Navigation (Header)
+- Home
+- Products
+  - Category
+  - Filter / Search / Sort (integrated in page)
+- Promotions
+- Cart
+- Contact
+- About (optional but recommended)
+
+---
+
+### 🔹 User Account
+- Login / Logout
+- Register
+- My Account
+  - Profile Information
+  - My Orders
+  - Reviews / Comments
+
+---
+
+### 🔹 Product Detail Page *(Required features)*
+- Product Images
+- Old Price / New Price
+- Reviews & Comments
+- Add to Cart Button
+
+---
+
+### 🔹 Footer
+- Return Policy
+- Warranty
+- Shipping
+- Google Maps (Store Location)
+- Contact / Feedback
+
+---
+
+## 🛠️ Admin Panel
+
+- Dashboard (Overview)
+- Product Management
+- Category Management
+- Order Management
+- User Management
+- Review / Comment Management
+- Promotion Management
+- Content Management (Policies, Contact)
+- System Settings
 ---
 
 ## 🎯 Mục tiêu
