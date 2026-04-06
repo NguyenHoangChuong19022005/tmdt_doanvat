@@ -58,63 +58,63 @@ Website cần đảm bảo đầy đủ các chức năng cơ bản và nâng ca
 - Quản lý người dùng
 # 🛒 E-commerce Website Structure
 
-## 👤 User Menu (Frontend)
-
-### 🔹 Main Navigation (Header)
-- Home
-- Products
-  - Category
-  - Filter / Search / Sort (integrated in page)
-- Promotions
-- Cart
-- Contact
-- About (optional but recommended)
-
----
-
-### 🔹 User Account
-- Login / Logout
-- Register
-- My Account
-  - Profile Information
-  - My Orders
-  - Reviews / Comments
-
----
-
-### 🔹 Product Detail Page *(Required features)*
-- Product Images
-- Old Price / New Price
-- Reviews & Comments
-- Add to Cart Button
-
----
-
-### 🔹 Footer
-- Return Policy
-- Warranty
-- Shipping
-- Google Maps (Store Location)
-- Contact / Feedback
-
----
-
-## 🛠️ Admin Panel
-
-- Dashboard (Overview)
-- Product Management
-- Category Management
-- Order Management
-- User Management
-- Review / Comment Management
-- Promotion Management
-- Content Management (Policies, Contact)
-- System Settings
----
-
 ## 🎯 Mục tiêu
 - Xây dựng hệ thống bán hàng online hoàn chỉnh
 - Nâng cao kỹ năng lập trình web (Frontend + Backend)
 - Áp dụng kiến thức vào thực tế
 
 ---
+# 🛒 Cấu trúc Website Thương mại điện tử
+
+## 👤 Menu phía người dùng (Frontend)
+
+### 🔹 Thanh menu chính (Header)
+- Trang chủ
+- Sản phẩm
+  - Danh mục
+  - Lọc / Tìm kiếm / Sắp xếp (tích hợp trong trang)
+- Khuyến mãi
+- Giỏ hàng
+- Liên hệ
+- Giới thiệu (tuỳ chọn nhưng nên có)
+
+---
+
+### 🔹 Menu tài khoản
+- Đăng nhập / Đăng xuất
+- Đăng ký
+- Tài khoản của tôi
+  - Thông tin cá nhân
+  - Đơn hàng của tôi
+  - Đánh giá / Bình luận
+
+---
+
+### 🔹 Trang chi tiết sản phẩm *(Chức năng bắt buộc)*
+- Ảnh sản phẩm
+- Giá cũ / Giá mới
+- Đánh giá và bình luận
+- Nút thêm vào giỏ hàng
+
+---
+
+### 🔹 Footer (Chân trang)
+- Chính sách đổi trả
+- Bảo hành
+- Vận chuyển
+- Google Maps (địa chỉ cửa hàng)
+- Liên hệ / Góp ý
+
+---
+
+## 🛠️ Menu trang quản trị (Admin)
+
+- Bảng điều khiển (Dashboard)
+- Quản lý sản phẩm
+- Quản lý danh mục
+- Quản lý đơn hàng
+- Quản lý người dùng
+- Quản lý đánh giá / bình luận
+- Quản lý khuyến mãi
+- Quản lý nội dung (chính sách, liên hệ)
+- Cài đặt hệ thống
