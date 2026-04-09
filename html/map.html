@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Bản đồ</title>
+  
+  <link rel="stylesheet" href="../css/map.css"/>
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+</head>
+<body>
+
+    <!-- map -->
+  <header class="toolbar">
+    <div class="left">
+      <button id="locate">📍 Vị trí hiện tại</button>
+      <button id="pickB">🎯 Chọn điểm đến (click map)</button>
+      <button id="nearest">⭐ Gợi ý trạm gần nhất</button>
+      <button id="draw" class="primary">Vẽ tuyến đi</button>
+      <button id="clear" class="ghost">Xoá lộ trình</button>
+      <button id="reset" class="warn">Chọn lại chuyến đi</button>
+      <button id="reset" class="father"><a href="index.html" >Trở về trang chủ</a></button>
+    </div>
+
+    <div class="right">
+      <div class="search-wrap">
+        <label>Điểm đến</label>
+        <input id="searchB" type="text" placeholder="Nhập địa chỉ/địa danh (ưu tiên TP.HCM)"/>
+        <button id="goB" class="go" disabled>▶ Chỉ đường tới điểm chọn</button>
+        <div id="sugB" class="sugs"></div>
+      </div>
+
+      <label>Giờ xuất phát:
+        <input id="depart" type="datetime-local">
+      </label>
+      <button id="now">Bây giờ</button>
+      <select id="basemap-select" title="Chọn nền bản đồ">
+        <option value="cartoLight" selected>Giao diện sáng</option>
+        <option value="cartoDark">Giao diện tối</option>
+        <option value="osm">Bản đồ tiêu chuẩn</option>
+      </select>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="map-wrap">
+      <div id="map"></div>
+
+      <!-- Panel tóm tắt – TRÊN BÊN PHẢI -->
+      <div id="ai-panel" class="ai-panel top-right">
+        <div class="panel-title">Dự báo chuyến đi</div>
+        <div class="ai-row">
+          <span class="tag">ETA (OSRM)</span> <span id="eta">—</span>
+        </div>
+        <div class="ai-row">
+          <span class="tag">Kẹt xe</span> <span id="traffic">—</span>
+        </div>
+        <div class="ai-row">
+          <span class="tag">Thời tiết đến nơi</span> <span id="weather">—</span>
+        </div>
+        <div class="legend">
+          <span class="badge g"></span> xanh: không kẹt
+          <span class="badge o"></span> vàng: hơi kẹt
+          <span class="badge r"></span> đỏ: kẹt xe
+        </div>
+        <div id="notes" class="notes"></div>
+      </div>
+    </section>
+
+    <aside class="sidebar">
+      <div class="sidebar-head">
+        <h3>Danh sách các trạm</h3>
+        <button id="fit-all" class="ghost">🗺️ Hiện tất cả</button>
+      </div>
+      <div id="branch-list" class="branch-list"></div>
+    </aside>
+  </main>
+
+  <div id="status" class="status" style="display:none"></div>
+
+  <script src="../js/map.js"></script>
+</div>
+</body>
+</html>
