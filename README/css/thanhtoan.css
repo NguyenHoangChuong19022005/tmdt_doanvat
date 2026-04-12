@@ -1,0 +1,249 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+    margin: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: auto;
+    gap: 30px;
+}
+
+.checkout-form,
+.order-summary {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 48%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h2, h3 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.radio-group {
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.radio-group label {
+    display: block;
+    margin-top: 5px;
+    font-weight: normal;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.message {
+    color: green;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.order-summary p {
+    margin: 8px 0;
+}
+
+.order-summary img {
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+hr {
+    margin: 10px 0;
+}
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .checkout-form, .order-summary {
+            flex: 1;
+            min-width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .order-summary img {
+            max-width: 100px;
+            height: auto;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        .radio-group {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+        .message {
+            color: #d9534f; /* Màu đỏ cho thông báo lỗi */
+            background-color: #f2dede;
+            border: 1px solid #ebccd1;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .order-summary .product-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            border-bottom: 1px dashed #eee;
+            padding-bottom: 10px;
+        }
+        .order-summary .product-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .product-details {
+            flex: 1;
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        button[type="submit"] {
+            background-color: #28a745; /* Màu xanh lá cây */
+            color: white;
+        }
+        button[type="submit"]:hover {
+            background-color: #218838;
+        }
+        button[type="button"] {
+            background-color: #007bff; /* Màu xanh dương */
+            color: white;
+        }
+        button[type="button"]:hover {
+            background-color: #0056b3;
+        }
+        input[type="text"], input[type="email"], textarea {
+            width: calc(100% - 22px); /* Trừ padding và border */
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        #bank-info {
+            background-color: #e9ecef;
+            border: 1px dashed #ced4da;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            text-align: center;
+        }
+        #bank-info p {
+            margin: 5px 0;
+            font-size: 1.1em;
+            color: #495057;
+        }
+        #bank-info img {
+            max-width: 150px;
+            height: auto;
+            margin-top: 10px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+        }
+        hr {
+            border: 0;
+            height: 1px;
+            background: #eee;
+            margin: 20px 0;
+        }
+        .summary-total-lines p {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        .summary-total-lines p strong {
+            color: #333;
+        }
+        .summary-total-lines .grand-total {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #28a745;
+            border-top: 2px solid #eee;
+            padding-top: 10px;
+            margin-top: 15px;
+        }

@@ -1,0 +1,327 @@
+/* =========================
+   Layout & Container
+   ========================= */
+header {
+    background-color: white;
+    width: 1200px;
+    height: 50px;
+    border: rgb(54, 135, 234) 2px solid;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0px;
+    z-index: 1000;
+}
+#container {
+    background-color: white;
+    width: 1200px;
+    min-height: 1000px;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    overflow: hidden;
+    border: none !important;
+}
+main {
+    background-color: white;
+    width: 100%;
+    min-height: 500px;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+section {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    width: 90%;
+    max-width: 1200px;
+    min-height: 400px;
+    margin: 0 auto;
+    text-align: center;
+    color: black;
+}
+
+/* =========================
+   Navigation (Main Bar)
+   ========================= */
+nav {
+    background: linear-gradient(to right, #4b6cdb, rgb(43, 73, 226));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    border: #5273e0 2px solid;
+    border-radius: 0px 0px 10px 10px;
+    border-top: none;
+    width: 1200px;
+    height: 40px;
+    margin-top: 45px;
+    margin-bottom: auto;
+    padding-top: 20px;
+    position: fixed;
+    top: 0px;
+    z-index: 999;
+}
+nav a {
+    color: white;
+    padding-right: 20px;
+    text-decoration: none;
+    text-align: right;
+}
+nav a:hover {
+    color: #ff0000;
+}
+
+/* =========================
+   Slideshow
+   ========================= */
+#slideshow-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+#slideshow-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    padding: 10px 0;
+    position: relative;
+}
+#slideshow {
+    width: 900px;
+    height: 450px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    background: #f7f7f7;
+    margin: 0 16px;
+}
+#slideshow .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.8s;
+    left: 0; top: 0;
+}
+#slideshow .slide.active {
+    opacity: 1;
+    z-index: 2;
+}
+.slide-btn {
+    background: rgba(23,65,194,0.8);
+    border: none;
+    color: #fff;
+    font-size: 32px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+.slide-btn:hover {
+    background: #ff0000;
+}
+.slide-dots {
+    position: absolute;
+    left: 50%;
+    bottom: 18px;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 20;
+}
+.slide-dots .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ccc;
+    display: inline-block;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.slide-dots .dot.active {
+    background: #1741c2;
+}
+
+/* =========================
+   Product Categories
+   ========================= */
+.product-categories {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    margin: 40px 0;
+}
+.category-item {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(149, 17, 17, 0.06);
+    padding: 24px 18px 18px 18px;
+    text-align: center;
+    width: 340px;
+    transition: box-shadow 0.2s;
+}
+.category-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 18px;
+}
+.img-hover-box {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+.img-hover-box img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: filter 0.3s;
+    display: block;
+}
+.choose-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #f26522;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    padding: 14px 24px;
+    font-size: 13px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.img-hover-box:hover img {
+    filter: blur(3px) brightness(0.8);
+}
+.img-hover-box:hover .choose-btn {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* =========================
+   Intro Section
+   ========================= */
+.intro-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 40px 0 32px 0;
+}
+.intro-container {
+    display: flex;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    padding: 32px 40px;
+    max-width: 1200px;
+    width: 100%;
+    align-items: center;
+    gap: 40px;
+}
+.intro-text {
+    flex: 1.2;
+    text-align: left;
+}
+.intro-title {
+    font-size: 22px;
+    color: #888;
+    margin-bottom: 8px;
+    text-transform: lowercase;
+}
+.intro-text h1 {
+    font-size: 38px;
+    font-weight: 800;
+    margin: 0 0 18px 0;
+    color: #222;
+    letter-spacing: 1px;
+}
+.intro-text blockquote {
+    font-size: 18px;
+    color: #444;
+    border-left: 4px solid #eee;
+    padding-left: 18px;
+    margin: 0 0 28px 0;
+    background: #fafafa;
+}
+.intro-btn {
+    padding: 10px 28px;
+    border: 2px solid #222;
+    background: #fff;
+    color: #222;
+    border-radius: 24px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    text-decoration: none;
+    display: inline-block;
+}
+.intro-btn:hover {
+    background: #1741c2;
+    color: #fff;
+    border-color: #1741c2;
+}
+.intro-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.intro-image img {
+    max-width: 420px;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+}
+
+/* =========================
+   Responsive
+   ========================= */
+@media (max-width: 900px) {
+    .intro-container {
+        flex-direction: column;
+        padding: 18px 8px;
+        gap: 18px;
+    }
+    .intro-image img {
+        max-width: 100%;
+    }
+}
+
+/* =========================
+   Custom Footer
+   ========================= */
+footer {
+    text-align: center;
+    background-color: rgb(12, 8, 225);
+    width: 1200px;
+    float: left;
+    min-height: 200px;
+    margin-top: 5px;
+    clear: both;
+}

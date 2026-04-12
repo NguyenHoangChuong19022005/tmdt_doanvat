@@ -1,0 +1,125 @@
+.tracuu-container {
+    max-width: 800px;
+    margin: 80px auto 100px;
+    background: #fff;
+    border: 2px solid #4231c2;
+    padding: 30px;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+    text-align: center; /* căn giữa nội dung */
+    background-color: #f9f9f9;
+}
+
+.tracuu-container h2, .tracuu-container h3 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+form {
+    margin-bottom: 25px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 60%;
+    max-width: 400px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 20px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+.result {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.result table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.result table, th, td {
+    border: 1px solid #ccc;
+}
+
+.result th, .result td {
+    padding: 10px;
+    text-align: center;
+}
+
+.error {
+    color: #dc3545;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.btns {
+    margin-top: 25px;
+}
+
+.btns .btn {
+    display: inline-block;
+    padding: 10px 16px;
+    margin-right: 10px;
+    background: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+}
+
+.btns .btn:hover {
+    background: #1e7e34;
+}
+.result table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 15px;
+    border: 1px solid #4231c2;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.result table th, 
+.result table td {
+    border: 1px solid #040415;
+    padding: 12px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.result table th {
+    background-color: #9999f4;
+    font-weight: bold;
+    color: #333;
+}
+
+.result table td img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}

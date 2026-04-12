@@ -1,0 +1,79 @@
+/* Thiết lập cơ bản cho toàn bộ phần tử */
+* {
+  box-sizing: border-box; 
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif; 
+}
+
+/* Khối bao toàn bộ nội dung */
+#container {
+  max-width: 1200px;          
+  margin: 20px auto;          
+  background: #fff;           
+  border: 2px solid #0af;     
+  padding: 20px;              
+  border-radius: 8px;         
+}
+
+/* Header */
+.header {
+  background: #bdf;              
+  padding: 15px;
+  border-bottom: 2px solid blue; 
+}
+
+/* Tiêu đề chính trong phần nội dung */
+main h2 {
+  color: #006699; 
+  margin-bottom: 15px;
+}
+
+/* Đoạn văn trong phần giới thiệu */
+main p {
+  line-height: 1.6;         
+  margin-bottom: 20px;      
+}
+
+/* Hình ảnh minh họa trong phần giới thiệu */
+main img {
+  max-width: 100%;          
+  height: auto;             
+  border: 2px solid #0af;   
+  border-radius: 4px;       
+  margin-top: 15px;
+}
+/* Vùng chứa tất cả sản phẩm, dùng flex để xếp hàng ngang */
+.product-list {
+  display: flex;                
+  flex-wrap: wrap;              
+  justify-content: space-between; 
+  gap: 20px;                    
+  margin-top: 30px;
+}
+
+/* Mỗi ô sản phẩm */
+.product-item {
+  flex: 0 0 calc(33.333% - 20px); /* Chiếm 1/3 hàng trừ đi khoảng cách */
+  background: #fff;               
+  border: 1px solid #ccc;         
+  padding: 15px;
+  text-align: center;            
+  border-radius: 8px;            
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Đổ bóng nhẹ */
+}
+
+/* Hình ảnh sản phẩm */
+.product-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border-radius: 6px;
+}
+
+/* Tên sản phẩm */
+.product-item h3 {
+  font-size: 16px;
+  color: #006699;
+}

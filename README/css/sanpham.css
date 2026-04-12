@@ -1,0 +1,584 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+main {
+    min-height: 400px;
+    margin-bottom: 100px;
+}
+
+.sanpham-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.menu-hot-row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+.menu-left {
+    position: relative;
+    width: 220px;
+    flex-shrink: 0;
+}
+
+.menu-right {
+    flex-grow: 0;
+}
+
+.breadcrumb {
+    font-size: 14px;
+    color: #333;
+    margin: 0;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.breadcrumb:hover {
+    color: #f30b0b;
+    font-style: italic;
+}
+
+.toggle-button {
+    padding: 10px 20px;
+    background-color: #eceeec;
+    color: rgb(20, 19, 19);
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.toggle-button:hover{
+    background-color: #f5142b;
+    color: white;
+}
+
+#menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: auto;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.loaisp-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.loaisp {
+    background-color: hsl(198, 92%, 52%);
+    color: white;
+    padding: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 4px 0 0 4px;
+    flex-shrink: 0;
+    width: 200px;
+    position: relative;
+}
+.loaisp:hover{
+    background-color: #147df5;
+
+}
+
+.loaisp.hot {
+    background-color: #ff0000;
+}
+
+.loaisp.hot:hover {
+    background-color: #ea9307;
+}
+
+.cloai {
+    display: none;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 0 4px 4px 0;
+    z-index: 11;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    left: 100%;
+    top: 0;
+    min-width: 100px;
+    margin-left: -1px;
+}
+
+.loaisp-wrapper:hover .cloai {
+    display: block;
+}
+
+.cloai a {
+    display: block;
+    padding: 5px 10px;
+    color: #333;
+    text-decoration: none;
+    font-style: italic;
+    white-space: nowrap;
+}
+
+.cloai a:hover {
+    background-color: #f0f0f0;
+    color: #1909ff;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.category-title {
+    text-align: center;
+    font-size: 24px;
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+.content {
+    flex: 1;
+    padding: 0 10px;
+}
+
+.title-center {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.sp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.sp-box {
+    border: 1px solid #ccc;
+    padding: 5px; /* Padding theo yêu cầu */
+    margin: 5px;
+    position: relative;
+    border-radius: 8px;
+    background: white;
+    text-align: center;
+    height: 250px;
+    box-sizing: border-box; 
+    overflow: hidden; /* Ngăn tràn nội dung */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+.sp-img {
+    padding: 5px;
+    width: 100%;
+    height: 150px; /* Giữ  chiều cao ảnh */
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.sp-img:hover {
+    transform: scale(1.1);
+    overflow: hidden;
+}
+
+.sp-name {
+    font-weight: bold;
+    margin-top: 5px; /* Giảm khoảng cách trên để tiết kiệm không gian */
+    font-size: 14px; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.sp-code {
+    font-size: 12px; /* Giảm kích thước chữ */
+    color: #555;
+    margin: 2px 0;
+}
+
+.sp-old-price {
+    color: #999;
+    font-size: 12px;
+    margin: 2px 0;
+}
+
+.sp-price {
+    font-size: 14px;
+    font-weight: bold;
+    color: red;
+    margin: 2px 0;
+}
+
+.badge-ud {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 60px;
+    height: 36px;
+    background-color: #28a745;
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 36px;
+    z-index: 2;
+
+    /* Hình oval với gai kiểu cánh ngôi sao */
+    clip-path: polygon(
+        50% 0%,
+        57% 7%, 65% 3%, 70% 10%, 77% 5%, 80% 13%, 87% 8%,
+        90% 16%, 96% 12%, 95% 20%, 100% 20%, 97% 28%,
+        100% 30%, 97% 38%, 100% 40%, 97% 48%, 100% 50%,
+        97% 58%, 100% 60%, 97% 68%, 100% 70%, 95% 80%,
+        96% 84%, 90% 84%, 87% 92%, 80% 88%, 77% 95%,
+        70% 90%, 65% 97%, 57% 93%, 50% 100%,
+        43% 93%, 35% 97%, 30% 90%, 23% 95%,
+        20% 88%, 13% 92%, 10% 84%, 4% 84%,
+        5% 80%, 0% 70%, 3% 68%, 0% 60%, 3% 58%,
+        0% 50%, 3% 48%, 0% 40%, 3% 38%, 0% 30%,
+        3% 28%, 0% 20%, 5% 20%, 4% 12%, 10% 16%,
+        13% 8%, 20% 13%, 23% 5%, 30% 10%, 35% 3%,
+        43% 7%
+    );
+}
+
+
+
+
+.badge-hot {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #ff0000;
+    color: white;
+    padding: 4px 6px;
+    font-size: 12px;
+    border-radius: 4px;
+    z-index: 2;
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 0.3), 0 6px 20px rgba(255, 0, 0, 0.2);
+}
+
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pag-btn {
+    display: inline-block;
+    padding: 5px 12px;
+    margin: 0 3px;
+    border: 1px solid #ccc;
+    background: #f2f2f2;
+    text-decoration: none;
+    color: #333;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pag-btn.prev, .pag-btn.next {
+    font-size: 14px;
+    padding: 5px 15px;
+}
+
+.pag-btn.prev i, .pag-btn.next i {
+    margin: 0 5px;
+}
+
+.pag-btn:hover:not(.disabled) {
+    background-color: #ddd;
+}
+
+.pag-btn.active {
+    background: #4CAF50;
+    color: white;
+    font-weight: bold;
+}
+
+.pag-btn.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* Spinner styles */
+.spinner-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+/* Spinner styles (nếu chưa có trong sanpham.css) */
+.spinner-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.btn-buy {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-buy:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+
+
+
+
+/* chi tiêt sản phẩm*/
+
+.zoom-container {
+  overflow: hidden;
+  position: relative;
+  max-width: 100%;
+}
+
+.zoom-container img {
+  transition: transform 0.3s ease;
+  cursor: zoom-in;
+}
+
+.zoom-container:hover img {
+  transform: scale(1.8);
+}
+
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  border: 1px solid rgb(140, 139, 139);
+  background-color: #ffffff;
+  text-align: left;
+}
+
+.product-table td {
+  border: 1px solid rgb(188, 185, 185);
+  padding: 10px;
+  vertical-align: top;
+  background-color: white;
+}
+
+.product-table td:first-child {
+  width: 200px;
+  font-weight: bold;
+  background-color: #f1f1f1;
+}
+
+.product-table td:last-child {
+  width: 300px;
+}
+
+.btn-buy {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.btn-buy i {
+  margin-right: 8px;
+}
+
+h2{
+    text-align: left;
+}
+
+
+
+
+.product-detail-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.zoom-container img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 5px;
+}
+
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.product-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.price-promo {
+    color: red;
+    font-size: 18px;
+}
+
+.quantity-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.quantity-btn {
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.quantity-btn:hover {
+    background: #e0e0e0;
+}
+
+.quantity-input {
+    width: 50px;
+    text-align: center;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.button-container {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-add-to-cart, .btn-buy {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btn-add-to-cart {
+    background: #007bff;
+}
+
+.btn-add-to-cart:hover {
+    background: #0056b3;
+}
+
+.btn-buy {
+    background: #28a745;
+}
+
+.btn-buy:hover {
+    background: #218838;
+}
