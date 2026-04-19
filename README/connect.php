@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "showroom_gach"; // showroom_gach là tên database đã import file showroom_gach.sql
+$dbname = "doan_vat"; // doan_vat là tên database đã import file doan_vat.sql
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {

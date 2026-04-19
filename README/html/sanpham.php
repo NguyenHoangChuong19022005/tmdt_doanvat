@@ -26,7 +26,7 @@
     <main>
     <script src="../js/sanpham.js"></script>
     <?php
-    $link = mysqli_connect("localhost", "root", "", "showroom_gach");
+    $link = mysqli_connect("localhost", "root", "", "doan_vat");
     mysqli_set_charset($link, "utf8");
 
     $loai_id = isset($_GET['loai_id']) ? (int)$_GET['loai_id'] : 0;
@@ -48,14 +48,14 @@
     while ($loai = mysqli_fetch_assoc($res_loai)) {
         echo "<div class='loaisp-wrapper'>";
         echo "<div class='loaisp' data-loai-id='{$loai['loai_id']}'>{$loai['loai_name']}</div>";
-        $sql_cl = "SELECT DISTINCT cls.chungloai_id, cls.kichthuoc 
+        $sql_cl = "SELECT DISTINCT cls.chungloai_id, cls.loaidoan 
                    FROM chungloai_sanpham cls 
                    JOIN sanpham sp ON cls.chungloai_id = sp.chungloai_id 
                    WHERE sp.loai_id = {$loai['loai_id']}";
         $res_cl = mysqli_query($link, $sql_cl);
         echo "<div class='cloai' data-loai-id='{$loai['loai_id']}'>";
         while ($cl = mysqli_fetch_assoc($res_cl)) {
-            echo "<a href='?loai_id={$loai['loai_id']}&chungloai_id={$cl['chungloai_id']}#duoi' data-chungloai-id='{$cl['chungloai_id']}'>{$cl['kichthuoc']}</a>";
+            echo "<a href='?loai_id={$loai['loai_id']}&chungloai_id={$cl['chungloai_id']}#duoi' data-chungloai-id='{$cl['chungloai_id']}'>{$cl['loaidoan']}</a>";
         }
         echo "</div>";
         echo "</div>";
@@ -79,9 +79,9 @@
         if ($row = mysqli_fetch_assoc($res_loai_name)) {
             $breadcrumb = "Sản phẩm >> {$row['loai_name']}";
             if ($chungloai_id > 0) {
-                $res_cl_name = mysqli_query($link, "SELECT kichthuoc FROM chungloai_sanpham WHERE chungloai_id = $chungloai_id");
+                $res_cl_name = mysqli_query($link, "SELECT loaidoan FROM chungloai_sanpham WHERE chungloai_id = $chungloai_id");
                 if ($cl_row = mysqli_fetch_assoc($res_cl_name)) {
-                    $breadcrumb .= " >> {$cl_row['kichthuoc']}";
+                    $breadcrumb .= " >> {$cl_row['loaidoan']}";
                 }
             }
         }
@@ -101,9 +101,9 @@
         if ($row = mysqli_fetch_assoc($res_loai_name)) {
             $current_category = $row['loai_name'];
             if ($chungloai_id > 0) {
-                $res_cl_name = mysqli_query($link, "SELECT kichthuoc FROM chungloai_sanpham WHERE chungloai_id = $chungloai_id");
+                $res_cl_name = mysqli_query($link, "SELECT loaidoan FROM chungloai_sanpham WHERE chungloai_id = $chungloai_id");
                 if ($cl_row = mysqli_fetch_assoc($res_cl_name)) {
-                    $current_category .= ' ( ' . $cl_row['kichthuoc'] .' ) ';
+                    $current_category .= ' ( ' . $cl_row['loaidoan'] .' ) ';
                 }
             }
         }

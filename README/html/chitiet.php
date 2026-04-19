@@ -21,11 +21,11 @@
     </script>
     <main>
         <?php
-        $link = mysqli_connect("localhost", "root", "", "showroom_gach");
+        $link = mysqli_connect("localhost", "root", "", "doan_vat");
         mysqli_set_charset($link, "utf8");
         $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
-        $sql = "SELECT sp.*, l.loai_name, cl.kichthuoc, ud.phamtram_uudai, ud.giasau_uudai
+        $sql = "SELECT sp.*, l.loai_name, cl.loaidoan, ud.phamtram_uudai, ud.giasau_uudai
                 FROM sanpham sp
                 JOIN loai_sanpham l ON sp.loai_id = l.loai_id
                 JOIN chungloai_sanpham cl ON sp.chungloai_id = cl.chungloai_id
@@ -50,10 +50,10 @@
             echo "<h2>" . htmlspecialchars($sp['ten_sanpham']) . "</h2>";
             echo "<table class='product-table'>";
             echo "<tr><td>Mã sản phẩm</td><td>" . htmlspecialchars($sp['ma_sp']) . "</td></tr>";
-            echo "<tr><td>Loại gạch</td><td>" . htmlspecialchars($sp['loai_name']) . "</td></tr>";
-            echo "<tr><td>Kích thước</td><td>" . htmlspecialchars($sp['kichthuoc']) . "</td></tr>";
-            echo "<tr><td>Chất liệu</td><td>" . htmlspecialchars($sp['chatlieu']) . "</td></tr>";
-            echo "<tr><td>Bề mặt</td><td>" . htmlspecialchars($sp['bemat']) . "</td></tr>";
+            echo "<tr><td>Kiểu</td><td>" . htmlspecialchars($sp['loai_name']) . "</td></tr>";
+            echo "<tr><td>Loại món ăn</td><td>" . htmlspecialchars($sp['loaidoan']) . "</td></tr>";
+            echo "<tr><td>Vị</td><td>" . htmlspecialchars($sp['thanhphan']) . "</td></tr>";
+            echo "<tr><td>Thành phần</td><td>" . htmlspecialchars($sp['vi']) . "</td></tr>";
             if ($gia_km > 0 && $gia_km < $gia) {
                 echo "<tr><td>Ưu đãi</td><td>-" . htmlspecialchars($uudai) . "%</td></tr>";
                 echo "<tr><td>Giá gốc</td><td><del>$gia_format</del></td></tr>";

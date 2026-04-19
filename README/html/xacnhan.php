@@ -171,7 +171,7 @@ $grand_total = $total_amount_products + $shipping_fee;
         </div>
 
         <p style="text-align: center; margin-top: 30px;">
-            Cảm ơn bạn đã đặt hàng tại **Showroom Gạch**!
+            Cảm ơn bạn đã đặt hàng tại **YUMMY**!
             <br>
             Chúng tôi sẽ liên hệ với bạn để xác nhận đơn hàng trong thời gian sớm nhất.
         </p>
