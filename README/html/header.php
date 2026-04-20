@@ -77,6 +77,42 @@ $(document).ready(function() {
 });
 </script>
 
+  <?php
+$page = basename($_SERVER['PHP_SELF']);
+
+switch($page){
+    case 'index.php': $title='TRANG CHỦ'; break;
+    case 'gioithieu.php': $title='GIỚI THIỆU'; break;
+    case 'sanpham.php': $title='SẢN PHẨM'; break;
+    case 'tintuc.php': $title='TIN TỨC'; break;
+    case 'khuyenmai.php': $title='ƯU ĐÃI'; break;
+    case 'map.php': $title='BẢN ĐỒ'; break;
+    default: $title='MENU';
+}
+?>
+
+<div id="menu-toggle">
+   <i class="fa-solid fa-bars"></i>
+   <span><?php echo $title; ?></span>
+</div>
+
+<div id="mobile-overlay"></div>
+
+<div id="mobile-sidebar">
+
+    <div class="sidebar-title">
+        <?php echo $title; ?>
+    </div>
+
+    <a href="index.php">TRANG CHỦ</a>
+    <a href="gioithieu.php">GIỚI THIỆU</a>
+    <a href="sanpham.php">SẢN PHẨM</a>
+    <a href="tintuc.php">TIN TỨC</a>
+    <a href="khuyenmai.php">ƯU ĐÃI</a>
+    <a href="map.php">BẢN ĐỒ</a>
+
+</div>
+
     <!-- Main bar -->
     <nav id="main-nav">
         <a href="index.php">TRANG CHỦ</a>
@@ -121,5 +157,25 @@ $(document).ready(function() {
         // Make updateCartCount available globally
         window.updateCartCount = updateCartCount;
     </script>
+    <script>
+$(document).ready(function(){
+
+   $("#mobile-sidebar").removeClass("active");
+   $("#mobile-overlay").removeClass("active");
+
+   $("#menu-toggle").click(function(e){
+      e.stopPropagation();
+      $("#mobile-sidebar").addClass("active");
+      $("#mobile-overlay").addClass("active");
+   });
+
+   $("#mobile-overlay").click(function(){
+      $("#mobile-sidebar").removeClass("active");
+      $("#mobile-overlay").removeClass("active");
+   });
+
+});
+</script>
+</script>
 </body>
 </html>

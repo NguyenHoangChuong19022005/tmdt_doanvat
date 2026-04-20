@@ -25,6 +25,7 @@
 
   $loai_id = isset($_GET['loai_id']) ? (int)$_GET['loai_id'] : 0;
   $chungloai_id = isset($_GET['chungloai_id']) ? (int)$_GET['chungloai_id'] : 0;
+  $search = isset($_GET['search']) ? trim($_GET['search']) : '';
   $page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
   $limit = 20;
   $start = ($page - 1) * $limit;
@@ -52,6 +53,13 @@
   echo "</div></div>";
 
   echo "<div class='menu-right'>";
+
+echo "
+<form method='GET' action='khuyenmai.php' class='search-box'>
+    <input type='text' name='search' placeholder='Tìm sản phẩm khuyến mãi...'>
+    <button type='submit'><i class='fas fa-search'></i></button>
+</form>
+";
   $breadcrumb = '';
   $current_category = '';
   if ($loai_id > 0) {
@@ -80,7 +88,24 @@
 
   // Nội dung
   echo "<div class='content' id='duoi'>";
-  $where = "uu.trangthai_uudai = 1";
+  if (!empty($search)) {
+
+    $search = mysqli_real_escape_string($link, $search);
+
+    $where = "uu.trangthai_uudai = 1 
+        AND (
+            sp.ten_sanpham LIKE '%$search%' 
+            OR sp.ma_sp LIKE '%$search%'
+        )";
+
+} else {
+
+    $where = "uu.trangthai_uudai = 1";
+
+    if ($loai_id > 0) $where .= " AND sp.loai_id = $loai_id";
+    if ($chungloai_id > 0) $where .= " AND sp.chungloai_id = $chungloai_id";
+
+}
   if ($loai_id > 0) $where .= " AND sp.loai_id = $loai_id";
   if ($chungloai_id > 0) $where .= " AND sp.chungloai_id = $chungloai_id";
 

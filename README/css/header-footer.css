@@ -1,6 +1,7 @@
 /* Top Bar Styles */
 #topbar {
-    width: 1200px;
+    width: 100%;
+    max-width: 1200px;
     background: #fff;
     display: flex;
     justify-content: space-between;
@@ -102,7 +103,8 @@
 
 /* Main Navigation Styles */
 #main-nav {
-    width: 1200px;
+    width: 100%;
+    max-width: 1200px;
     background: #1741c2;
     display: flex;
     justify-content: center;
@@ -339,4 +341,180 @@ body {
     margin-left: 10px;
     color: #333;
     text-decoration: none;
+}
+
+/* =========================================
+   Floating Action Buttons
+   ========================================= */
+.floating-buttons {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 9999;
+}
+
+.float-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+}
+
+.float-btn:hover {
+    transform: scale(1.15);
+}
+
+/* Nút Map (Nền trắng, vòng cung ngoài đỏ nhạt giống hình mẫu) */
+.map-btn {
+    background-color: #fff;
+    border: 4px solid rgba(255, 99, 99, 0.4);
+    box-sizing: content-box;
+    width: 42px;
+    height: 42px;
+}
+
+.map-btn img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Nút Gọi điện (Xanh lá cây, bo góc nhẹ hình vuông) */
+.phone-btn {
+    background-color: #32a852; /* Màu xanh lá đặc trưng */
+    color: #fff;
+    font-size: 24px;
+    border-radius: 14px; /* Hình vuông bo góc thay vì tròn hẳn */
+    animation: phoneRing 2s infinite ease-in-out;
+}
+
+/* Hiệu ứng rung chuông cho nút gọi */
+@keyframes phoneRing {
+    0% { transform: scale(1) rotate(0deg); }
+    10% { transform: scale(1.1) rotate(-15deg); }
+    20% { transform: scale(1.1) rotate(15deg); }
+    30% { transform: scale(1.1) rotate(-15deg); }
+    40% { transform: scale(1.1) rotate(15deg); }
+    50% { transform: scale(1) rotate(0deg); }
+    100% { transform: scale(1) rotate(0deg); }
+}
+
+/* =========================================
+   MOBILE MENU - FIX FULL
+   - ☰ bấm được mọi trang
+   - Sidebar đè toàn bộ
+   - Tiêu đề sidebar = tên trang hiện tại
+========================================= */
+
+/* PC */
+#menu-toggle,
+#mobile-overlay,
+#mobile-sidebar{
+    display:none;
+}
+
+/* MOBILE */
+@media (max-width:768px){
+
+    /* nút trên header */
+    #menu-toggle{
+        display:flex;
+        align-items:center;
+        gap:12px;
+        width:100%;
+        min-height:54px;
+        padding:14px 16px;
+        box-sizing:border-box;
+        background:linear-gradient(135deg,#1741c2,#2d6bff);
+        color:#fff;
+        font-size:16px;
+        font-weight:700;
+        cursor:pointer;
+        position:relative;
+        z-index:1001;
+    }
+
+    #menu-toggle i{
+        font-size:20px;
+        width:22px;
+        text-align:center;
+        flex-shrink:0;
+    }
+
+    #menu-toggle span{
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+    }
+
+    /* ẩn menu ngang */
+    #main-nav{
+        display:none !important;
+    }
+
+    /* nền tối */
+    #mobile-overlay{
+        position:fixed;
+        inset:0;
+        background:rgba(0,0,0,.45);
+        z-index:9998;
+        display:none;
+    }
+
+    #mobile-overlay.active{
+        display:block;
+    }
+
+    /* sidebar */
+    #mobile-sidebar{
+        display:block;
+        position:fixed;
+        top:0;
+        left:-280px;
+        width:260px;
+        height:100%;
+        background:#1741c2;
+        z-index:9999;
+        transition:left .3s ease;
+        overflow-y:auto;
+        box-shadow:4px 0 14px rgba(0,0,0,.25);
+    }
+
+    #mobile-sidebar.active{
+        left:0;
+    }
+
+    /* tiêu đề sidebar = tên trang */
+    #mobile-sidebar .sidebar-title{
+        padding:16px 20px;
+        font-size:18px;
+        font-weight:700;
+        background:#12339a;
+        color:#fff;
+        border-bottom:1px solid rgba(255,255,255,.15);
+    }
+
+    /* menu link */
+    #mobile-sidebar a{
+        display:block;
+        padding:15px 20px;
+        color:#fff;
+        text-decoration:none;
+        font-size:15px;
+        font-weight:700;
+        border-bottom:1px solid rgba(255,255,255,.15);
+    }
+
+    #mobile-sidebar a:hover,
+    #mobile-sidebar a.active{
+        background:#2d6bff;
+    }
 }

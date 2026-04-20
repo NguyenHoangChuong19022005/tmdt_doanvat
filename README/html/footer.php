@@ -60,5 +60,72 @@
             </div>
         </div>
     </footer>
+
+    <!-- Floating Action Buttons -->
+    <style>
+        .floating-buttons {
+            position: fixed !important;
+            bottom: 30px !important;
+            right: 30px !important;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 999999 !important;
+        }
+        .float-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+        .float-btn:hover {
+            transform: scale(1.15);
+        }
+        .map-btn {
+            background-color: #fff;
+            border: 4px solid rgba(255, 99, 99, 0.4);
+            box-sizing: content-box;
+            width: 42px;
+            height: 42px;
+        }
+        .map-btn img {
+            width: 26px !important;
+            height: 26px !important;
+            object-fit: contain;
+        }
+        .phone-btn {
+            background-color: #32a852;
+            color: #fff;
+            font-size: 24px;
+            border-radius: 14px;
+            animation: phoneRing 2s infinite ease-in-out;
+        }
+        @keyframes phoneRing {
+            0% { transform: scale(1) rotate(0deg); }
+            10% { transform: scale(1.1) rotate(-15deg); }
+            20% { transform: scale(1.1) rotate(15deg); }
+            30% { transform: scale(1.1) rotate(-15deg); }
+            40% { transform: scale(1.1) rotate(15deg); }
+            50% { transform: scale(1) rotate(0deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+    </style>
+    <div class="floating-buttons">
+        <!-- Nút Map -->
+        <a href="https://maps.google.com/?q=02+Võ+Oanh,+Phường+25,+Bình+Thạnh,+Hồ+Chí+Minh" target="_blank" class="float-btn map-btn" title="Chỉ đường trên Google Maps">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Google_Maps_icon_%282020%29.svg" alt="Google Maps" style="width:26px; height:26px; object-fit:contain;">
+        </a>
+        
+        <!-- Nút Gọi điện -->
+        <a href="tel:02838992862" class="float-btn phone-btn" title="Gọi ngay cho chúng tôi">
+            <i class="fa-solid fa-phone-volume"></i>
+        </a>
+    </div>
 </body>
 </html>

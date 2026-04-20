@@ -13,7 +13,13 @@
   <div id="container">
     
     <!-- Header -->
-<div id="header-placeholder"></div>
+     <!-- Top Bar, Main bar -->
+    <div id="include-header"></div>
+    <script>
+    $(function () {
+        $("#include-header").load("header.php");
+    });
+    </script>
 
     <!-- Nội dung giới thiệu -->
     <main class="gioi-thieu-noi-dung">
@@ -88,19 +94,12 @@
     </script>
 
   </div>
-  <script>
-    // chèn header
-  fetch('header.php')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('header-placeholder').innerHTML = data;
+  <div id="include-footer">
+<script>
+    $(function () {
+        $("#include-footer").load("footer.php");
     });
-    // Chèn Footer
-  fetch('footer.php')
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById('footer-placeholder').innerHTML = data;
-    });
-</script>
+    </script>
+</div>
 </body>
 </html>

@@ -77,3 +77,17 @@ main img {
   font-size: 16px;
   color: #006699;
 }
+
+/* Header luôn nổi trên cùng */
+#topbar,
+#menu-toggle{
+    position:relative;
+    z-index:99999;
+}
+
+/* Nội dung thấp hơn header */
+#container{
+    position:relative;
+    z-index:1;
+    margin-top:20px;
+}

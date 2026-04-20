@@ -87,6 +87,12 @@
         }
     }
     echo "<div class='menu-right'>";
+    echo "
+<form method='GET' action='sanpham.php' class='search-box'>
+    <input type='text' name='search' placeholder='Tìm tên hoặc mã sản phẩm...'>
+    <button type='submit'><i class='fas fa-search'></i></button>
+</form>
+";
     echo "<div class='breadcrumb' id='breadcrumb-link' style='display: " . ($breadcrumb ? 'block' : 'none') . "'>$breadcrumb</div>";
     echo "</div>";
 
@@ -112,6 +118,32 @@
 
     // Nội dung chính
     echo "<div class='content' id='duoi'>";
+    $search = $_GET['search'] ?? '';
+
+if (!empty($search)) {
+
+    $words = explode(" ", $search);
+    $conditions = [];
+
+    foreach ($words as $w) {
+        $w = mysqli_real_escape_string($link, $w);
+
+        $conditions[] = "(
+    sp.ten_sanpham LIKE '%$w%' 
+    OR sp.ma_sp LIKE '%$w%'
+    OR l.loai_name LIKE '%$w%'
+    OR cl.loaidoan LIKE '%$w%'
+
+    OR sp.ten_sanpham COLLATE utf8mb4_general_ci LIKE '%$w%'
+    OR l.loai_name COLLATE utf8mb4_general_ci LIKE '%$w%'
+    OR cl.loaidoan COLLATE utf8mb4_general_ci LIKE '%$w%'
+)";
+    }
+
+    $where = implode(" AND ", $conditions);
+
+} else {
+
     if ($hien_hot) {
         $where = "sp.id_sp_hot = 1";
     } else {
@@ -121,20 +153,26 @@
         }
     }
 
+}
+
     // Đếm tổng
     $count = mysqli_query($link, "SELECT COUNT(*) AS total 
-        FROM sanpham sp 
-        LEFT JOIN uudai ud ON sp.sanpham_id = ud.sanpham_id AND ud.trangthai_uudai = 1 
-        WHERE $where");
+    FROM sanpham sp
+    LEFT JOIN loai_sanpham l ON sp.loai_id = l.loai_id
+    LEFT JOIN chungloai_sanpham cl ON sp.chungloai_id = cl.chungloai_id
+    LEFT JOIN uudai ud ON sp.sanpham_id = ud.sanpham_id AND ud.trangthai_uudai = 1 
+    WHERE $where");
     $total = mysqli_fetch_assoc($count)['total'];
     $total_pages = ceil($total / $limit);
 
     // Lấy sản phẩm
-    $sql_sp = "SELECT sp.*, ud.phamtram_uudai, ud.giasau_uudai 
-               FROM sanpham sp 
-               LEFT JOIN uudai ud ON sp.sanpham_id = ud.sanpham_id AND ud.trangthai_uudai = 1 
-               WHERE $where 
-               LIMIT $start, $limit";
+    $sql_sp = "SELECT sp.*, ud.phamtram_uudai, ud.giasau_uudai
+           FROM sanpham sp
+           LEFT JOIN loai_sanpham l ON sp.loai_id = l.loai_id
+           LEFT JOIN chungloai_sanpham cl ON sp.chungloai_id = cl.chungloai_id
+           LEFT JOIN uudai ud ON sp.sanpham_id = ud.sanpham_id AND ud.trangthai_uudai = 1
+           WHERE $where
+           LIMIT $start, $limit";
     $res_sp = mysqli_query($link, $sql_sp);
 
     echo "<div class='sp-grid'>";

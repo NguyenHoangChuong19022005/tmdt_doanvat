@@ -582,3 +582,53 @@ h2{
 .btn-buy:hover {
     background: #218838;
 }
+
+.menu-hot-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 10px; /* tạo mép trái/phải */
+    box-sizing: border-box;
+}
+
+.menu-left {
+    flex: 1;
+}
+
+.menu-right {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* đẩy hết sang phải */
+}
+
+/* search */
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    padding: 8px 12px;
+    width: 200px;
+}
+
+.search-box button {
+    background: #ff6600;
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+
+#container {
+    width: 100%;
+    max-width: 100%;
+}
+

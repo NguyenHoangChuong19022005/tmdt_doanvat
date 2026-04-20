@@ -108,3 +108,39 @@ $(document).ready(function () {
     }
 });
 
+$(document).ready(function () {
+
+    // Gợi ý khi gõ
+    $("#search-input").on("keyup", function () {
+        let keyword = $(this).val();
+
+        if (keyword.length < 1) {
+            $("#suggest-box").hide();
+            return;
+        }
+
+        $.get("search_suggest.php", { q: keyword }, function (data) {
+            $("#suggest-box").html(data).show();
+        });
+    });
+
+    // Click vào gợi ý
+    $(document).on("click", ".suggest-item", function () {
+        $("#search-input").val($(this).text());
+        $("#suggest-box").hide();
+    });
+
+    // Nhấn nút tìm
+    $("#search-btn").click(function () {
+        let keyword = $("#search-input").val();
+        window.location.href = "sanpham.php?search=" + encodeURIComponent(keyword);
+    });
+
+    // Enter để tìm
+    $("#search-input").keypress(function (e) {
+        if (e.which == 13) {
+            $("#search-btn").click();
+        }
+    });
+
+});
