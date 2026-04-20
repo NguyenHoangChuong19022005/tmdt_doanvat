@@ -51,9 +51,9 @@
             echo "<table class='product-table'>";
             echo "<tr><td>Mã sản phẩm</td><td>" . htmlspecialchars($sp['ma_sp']) . "</td></tr>";
             echo "<tr><td>Kiểu</td><td>" . htmlspecialchars($sp['loai_name']) . "</td></tr>";
-            echo "<tr><td>Loại món ăn</td><td>" . htmlspecialchars($sp['loaidoan']) . "</td></tr>";
-            echo "<tr><td>Vị</td><td>" . htmlspecialchars($sp['thanhphan']) . "</td></tr>";
-            echo "<tr><td>Thành phần</td><td>" . htmlspecialchars($sp['vi']) . "</td></tr>";
+            echo "<tr><td>Loại món</td><td>" . htmlspecialchars($sp['loaidoan']) . "</td></tr>";
+            echo "<tr><td>Thành phần</td><td>" . htmlspecialchars($sp['thanhphan']) . "</td></tr>";
+            echo "<tr><td>Vị</td><td>" . htmlspecialchars($sp['vi']) . "</td></tr>";
             if ($gia_km > 0 && $gia_km < $gia) {
                 echo "<tr><td>Ưu đãi</td><td>-" . htmlspecialchars($uudai) . "%</td></tr>";
                 echo "<tr><td>Giá gốc</td><td><del>$gia_format</del></td></tr>";
